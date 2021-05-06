@@ -1,0 +1,48 @@
+// ------- THEME COLORS ------ 
+
+.dark-body{
+    background-color: $darkBody;
+}
+
+.dark-todo{
+    background-color: $darkTodo;
+    color: $darkTodoFont;
+}
+
+.dark-border{
+    border-bottom: 1px solid $darkButtonFont;
+}
+
+.dark-todo-button{
+    background-color: $darkTodo;
+    color: $darkButtonFont;
+}
+
+.dark-todo-button:hover{
+    color: hsl(220, 98%, 61%);
+}
+
+.dark-todo-options{
+    background-color: $darkTodo;
+    color: $darkButtonFont;
+}
+
+// ------- END THEME COLORS ------ 
+
+.img-hero-dark{
+    position: relative;
+    background-image: url(/images/bg-mobile-dark.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    transition: background-image .8s;
+    }
+
+
+@media (min-width: 375px) {
+    .img-hero-dark{
+        background-image: url(/images/bg-desktop-dark.jpg);
+        
+    }
+}
