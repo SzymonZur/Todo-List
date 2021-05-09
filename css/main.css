@@ -259,4 +259,12 @@ main .todo-space button {
 body {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.scaleChangeUp {
+  display: none;
+}
+
+.active {
+  color: #3a7bfd;
+}
 /*# sourceMappingURL=main.css.map */

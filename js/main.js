@@ -3,7 +3,10 @@ let $todoInput
 let $todoList
 let $newTask
 let $clearBtn
-
+let $changeSpace
+let $allBtn
+let $activeBtn
+let $completedBtn
 
 // wrzucamy nasze 2 funkcje do głównej
 const main = () => {
@@ -17,6 +20,10 @@ const prepareDOMElements = () => {
     $todoInput = document.querySelector(".todo-input");
     $todoList = document.querySelector(".todo-list");
     $clearBtn = document.querySelector(".clear");
+    $changeSpace = document.querySelector(".changeSpace");
+    $allBtn = document.querySelector(".all-btn")
+    $activeBtn = document.querySelector(".active-btn")
+    $completedBtn = document.querySelector(".completed-btn")
 };
 
 // nadajemy nasłuchiwanie 
@@ -25,7 +32,11 @@ const prepareDOMEvents = () => {
     window.addEventListener('keyup', addNewTask);
     $todoList.addEventListener('click', ifCompleted);
     $todoList.addEventListener('click', deleteTask);
+    $todoList.addEventListener('click', itemCount)
     $clearBtn.addEventListener('click', clearComplete);
+    $allBtn.addEventListener('click', showAllTodo);
+    $activeBtn.addEventListener('click', showActiveTodo);
+    $completedBtn.addEventListener('click', showCompletedTodo);
 };
 
 
@@ -96,7 +107,7 @@ const addNewTask = (event) => {
         
         $todoList.insertBefore($newTask, $todoList.lastElementChild);
         createBtnTodo();
-
+        showAllTodo();
         $todoInput.value = "";
 }}
 
@@ -117,18 +128,21 @@ const createBtnTodo = () => {
 
 // SPRAWDZAMY, KTÓRE ZADANIA SĄ JUŻ ZAKOŃCZONE
 const ifCompleted = (e) => {
+    if(e.target.closest("input")){
         if(e.target.closest("input").checked == true){
             e.target.closest("li").classList.add("completed")
         }else{
             e.target.closest("li").classList.remove("completed")
         }
+    }
 }
 
 // usunięcie wybranego taska 
 const deleteTask = (e) => {
-    if(e.target.closest("button").classList == "light-todo-button" || e.target.closest("button").classList == "dark-todo-button"){
-        e.target.closest("li").remove();
-
+    if(e.target.closest("button")){
+        if(e.target.closest("button").classList == "light-todo-button" || e.target.closest("button").classList == "dark-todo-button"){
+            e.target.closest("li").remove();
+        }
     }
 }  
 
@@ -140,8 +154,61 @@ const clearComplete = (e) => {
     });
 }
 
+// POKAZUJE NAM WSZYSTKIE TODO NA LIŚCIE
+const showAllTodo = () =>{
+    const allTodo = document.querySelectorAll(".todo-list li")
+    allTodo.forEach(item =>{
+        item.classList.remove("scaleChangeUp")
+    })
+    if($allBtn.classList !== "active"){
+        $allBtn.classList.add("active");
+        $activeBtn.classList.remove("active");
+        $completedBtn.classList.remove("active");
+    }
+}
 
-// DO ZROBIENIA: INTERAKCJA Z BTN (ACTIVE, COMPLETE, ALL) ORAZ WYŚWIETLANIE ILE JEST LI NA LIŚCIE
+// POKAZUJE NAM AKTYWWNE TODO NA LIŚCIE
+const showActiveTodo = () =>{
+    const allTodo = document.querySelectorAll(".todo-list li")
+    
+    if($activeBtn.classList !== "active"){
+        $activeBtn.classList.add("active");
+        $allBtn.classList.remove("active");
+        $completedBtn.classList.remove("active");
+    }
+    allTodo.forEach(item =>{
+        if(item.querySelector("input")){
+        if(item.querySelector("input").checked == true){
+            item.classList.add("scaleChangeUp")
+        }else if(item.querySelector("input").checked == false){
+            item.classList.remove("scaleChangeUp")
+        }
+    }})
+}
+
+// POKAZUJE NAM UKOŃCZONE TODO NA LIŚCIE
+const showCompletedTodo = () =>{
+    const allTodo = document.querySelectorAll(".todo-list li")
+    if($completedBtn.classList !== "active"){
+        $completedBtn.classList.add("active");
+        $activeBtn.classList.remove("active");
+        $allBtn.classList.remove("active");
+    }
+    allTodo.forEach(item =>{
+        if(item.querySelector("input")){
+        if(item.querySelector("input").checked == false){
+            item.classList.add("scaleChangeUp")
+        }else if(item.querySelector("input").checked == true){
+            item.classList.remove("scaleChangeUp")
+        }
+    }})
+}
+
+const itemCount = (e) => {
+    if(e.target.closest("input")){
+        
+    }
+}
 
 // wywyołujemy główną funkcje, gdy cały dokument się załaduje
 document.addEventListener('DOMContentLoaded', main);
