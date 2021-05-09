@@ -108,6 +108,7 @@ const addNewTask = (event) => {
         $todoList.insertBefore($newTask, $todoList.lastElementChild);
         createBtnTodo();
         showAllTodo();
+        itemCount();
         $todoInput.value = "";
 }}
 
@@ -204,10 +205,19 @@ const showCompletedTodo = () =>{
     }})
 }
 
-const itemCount = (e) => {
-    if(e.target.closest("input")){
-        
-    }
+// funkcja do zliczenia todosow do zrobienia
+const itemCount = () => {
+    const allTodo = document.querySelectorAll('.todo-list li');
+    const textChange = document.querySelector(".item-left")
+    let todoCount = 0;
+
+        allTodo.forEach(item =>{
+            if(!item.classList.contains("completed") && !item.classList.contains("todo-options")){
+            todoCount++;
+            }
+        })
+
+    textChange.innerText = `${todoCount} items left`
 }
 
 // wywyołujemy główną funkcje, gdy cały dokument się załaduje
