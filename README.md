@@ -43,5 +43,5 @@ Users should be able to:
 ## Author
 
 Szymon Żur
-- Link - [@szymonżur](https://www.linkedin.com/in/szymon%C5%BCur/)
+- Linkedin - [@szymonżur](https://www.linkedin.com/in/szymon%C5%BCur/)
 
