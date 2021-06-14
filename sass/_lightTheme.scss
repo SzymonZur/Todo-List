@@ -57,7 +57,7 @@ body, button, li, .todo-space{
 header{
     .img-hero{
         position: relative;
-        background-image: url(../images/bg-mobile-light.jpg);
+        background-image: url('../images/bg-mobile-light.jpg');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -132,7 +132,7 @@ main{
             }
 
             .todo-checkbox:checked {
-                background-image: url(../images/icon-check.svg);
+                background-image: url('../images/icon-check.svg');
                 background-position: center;
                 background-size: auto;
                 background-repeat: no-repeat;
@@ -174,7 +174,7 @@ main{
 @media (min-width: 375px) {
     header{
         .img-hero{
-            background-image: url(../images/bg-desktop-light.jpg);
+            background-image: url('../images/bg-desktop-light.jpg');
             }
         }
 }

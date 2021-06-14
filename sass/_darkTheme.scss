@@ -31,7 +31,7 @@
 
 .img-hero-dark{
     position: relative;
-    background-image: url(../images/bg-mobile-dark.jpg);
+    background-image: url('../images/bg-mobile-dark.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@
 
 @media (min-width: 375px) {
     .img-hero-dark{
-        background-image: url(../images/bg-desktop-dark.jpg);
+        background-image: url('../images/bg-desktop-dark.jpg');
         
     }
 }
