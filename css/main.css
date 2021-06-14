@@ -51,7 +51,7 @@ body, button, li, .todo-space {
 
 header .img-hero {
   position: relative;
-  background-image: url(/images/bg-mobile-light.jpg);
+  background-image: url(../images/bg-mobile-light.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -152,7 +152,7 @@ main ul li .todo-checkbox {
 }
 
 main ul li .todo-checkbox:checked {
-  background-image: url(/images/icon-check.svg);
+  background-image: url(../images/icon-check.svg);
   background-position: center;
   background-size: auto;
   background-repeat: no-repeat;
@@ -193,7 +193,7 @@ main .todo-space button {
 
 @media (min-width: 375px) {
   header .img-hero {
-    background-image: url(/images/bg-desktop-light.jpg);
+    background-image: url(../images/bg-desktop-light.jpg);
   }
 }
 
@@ -232,7 +232,7 @@ main .todo-space button {
 
 .img-hero-dark {
   position: relative;
-  background-image: url(/images/bg-mobile-dark.jpg);
+  background-image: url(../images/bg-mobile-dark.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -243,7 +243,7 @@ main .todo-space button {
 
 @media (min-width: 375px) {
   .img-hero-dark {
-    background-image: url(/images/bg-desktop-dark.jpg);
+    background-image: url(../images/bg-desktop-dark.jpg);
   }
 }
 
